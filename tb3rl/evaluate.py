@@ -20,8 +20,8 @@ def policy(algo, net):
     return lambda s: float(net.forward(s[None])[0, 0]) * MAX_ANG
 
 
-def evaluate(algo, net, episodes, seed):
-    env, pi = NavEnv(seed=10_000 + seed), policy(algo, net)  # arenas never seen in training
+def evaluate(algo, net, episodes, seed, noise=0.0):
+    env, pi = NavEnv(seed=10_000 + seed, noise=noise), policy(algo, net)  # arenas never seen in training
     goals = crashes = 0
     times = []
     for _ in range(episodes):
@@ -102,6 +102,8 @@ if __name__ == "__main__":
     p.add_argument("--results", default="results")
     p.add_argument("--seeds", type=int, nargs="+", default=[0, 1, 2])
     p.add_argument("--episodes", type=int, default=200)
+    p.add_argument("--noise", type=float, nargs="*", default=[0.02, 0.05],
+                   help="lidar noise std (m) for the robustness check")
     a = p.parse_args()
     summary = {}
     for algo in ("dqn", "ddpg"):
@@ -115,6 +117,15 @@ if __name__ == "__main__":
                 per_seed.append(r)
         if per_seed:
             summary[algo] = {k: [round(r[k], 3) for r in per_seed] for k in per_seed[0]}
+    # robustness: same policies, noisy lidar they never saw in training
+    summary["noise_robustness"] = {}
+    for algo in ("dqn", "ddpg"):
+        for n in a.noise:
+            sr = [evaluate(algo, pickle.load(open(f"{a.results}/{algo}_seed{sd}.pkl", "rb")),
+                           a.episodes, sd, noise=n)["success_rate"]
+                  for sd in a.seeds if os.path.exists(f"{a.results}/{algo}_seed{sd}.pkl")]
+            if sr:
+                summary["noise_robustness"][f"{algo}_noise{n}"] = round(float(np.mean(sr)), 3)
     summary["random_policy"] = random_baseline(a.episodes, 0)
     json.dump(summary, open(f"{a.results}/evaluation.json", "w"), indent=2)
     print(json.dumps(summary, indent=2))

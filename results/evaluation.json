@@ -63,6 +63,12 @@
       0.16
     ]
   },
+  "noise_robustness": {
+    "dqn_noise0.02": 0.727,
+    "dqn_noise0.05": 0.65,
+    "ddpg_noise0.02": 0.76,
+    "ddpg_noise0.05": 0.738
+  },
   "random_policy": {
     "success_rate": 0.035,
     "crash_rate": 0.965,
