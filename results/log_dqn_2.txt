@@ -1,0 +1,16 @@
+dqn ep    0  return  -108.7  goal 0.00  crash 1.00
+dqn ep   50  return   -79.8  goal 0.10  crash 0.90
+dqn ep  100  return    -7.1  goal 0.42  crash 0.58
+dqn ep  150  return    36.1  goal 0.62  crash 0.38
+dqn ep  200  return    29.3  goal 0.58  crash 0.42
+dqn ep  250  return    45.8  goal 0.66  crash 0.34
+dqn ep  300  return    61.3  goal 0.74  crash 0.26
+dqn ep  350  return    71.4  goal 0.78  crash 0.22
+dqn ep  400  return    77.1  goal 0.82  crash 0.18
+dqn ep  450  return    49.2  goal 0.68  crash 0.32
+dqn ep  500  return    82.5  goal 0.84  crash 0.16
+dqn ep  550  return    78.2  goal 0.82  crash 0.18
+dqn ep  600  return    69.7  goal 0.78  crash 0.22
+dqn ep  650  return    48.6  goal 0.68  crash 0.32
+dqn ep  700  return    78.3  goal 0.82  crash 0.18
+dqn ep  750  return    87.3  goal 0.86  crash 0.14

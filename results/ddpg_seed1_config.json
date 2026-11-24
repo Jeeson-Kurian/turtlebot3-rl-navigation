@@ -1,0 +1,5 @@
+{
+  "algo": "ddpg",
+  "episodes": 800,
+  "seed": 1
+}

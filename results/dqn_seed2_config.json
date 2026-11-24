@@ -1,0 +1,5 @@
+{
+  "algo": "dqn",
+  "episodes": 800,
+  "seed": 2
+}

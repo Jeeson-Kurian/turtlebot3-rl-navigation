@@ -1,0 +1,16 @@
+ddpg ep    0  return  -116.8  goal 0.00  crash 1.00
+ddpg ep   50  return   -36.6  goal 0.30  crash 0.70
+ddpg ep  100  return    61.1  goal 0.74  crash 0.26
+ddpg ep  150  return    65.3  goal 0.76  crash 0.24
+ddpg ep  200  return    72.3  goal 0.78  crash 0.22
+ddpg ep  250  return    95.7  goal 0.90  crash 0.10
+ddpg ep  300  return    84.1  goal 0.84  crash 0.16
+ddpg ep  350  return    66.4  goal 0.76  crash 0.24
+ddpg ep  400  return    70.3  goal 0.78  crash 0.22
+ddpg ep  450  return    62.9  goal 0.74  crash 0.26
+ddpg ep  500  return    74.6  goal 0.80  crash 0.20
+ddpg ep  550  return    69.6  goal 0.78  crash 0.22
+ddpg ep  600  return    67.5  goal 0.76  crash 0.24
+ddpg ep  650  return    83.6  goal 0.84  crash 0.16
+ddpg ep  700  return    57.4  goal 0.72  crash 0.28
+ddpg ep  750  return    62.8  goal 0.74  crash 0.26
